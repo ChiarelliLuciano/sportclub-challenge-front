@@ -17,7 +17,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
   return (
     <a
       href={`/beneficio/${id}`}
-      className="flex max-h-fit min-h-[260px] w-[calc(50%-12px)] min-w-[150px] flex-col items-center rounded-[2px] bg-white md:h-full md:max-h-[340px] md:min-h-[340px] md:min-w-[248px]"
+      className="flex max-h-fit min-h-[260px] w-[calc(50%-12px)] min-w-[150px] flex-col items-center rounded-lg border-[1px] border-gray-300 bg-white md:h-full md:max-h-[340px] md:min-h-[340px] md:min-w-[248px]"
     >
       <img
         alt={`Logo de ${comercio}`}

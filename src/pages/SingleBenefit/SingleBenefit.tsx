@@ -14,8 +14,11 @@ const SingleBenefit = () => {
 
   useEffect(() => {
     const fetchBenefit = async () => {
+      if (!id) {
+        return;
+      }
       try {
-        const data = await getSingleBenefit(id || "");
+        const data = await getSingleBenefit(id);
         setBenefit(data.body);
       } catch (err: any) {
         setError(err.message || "Error fetching benefit");
@@ -36,7 +39,6 @@ const SingleBenefit = () => {
       <div className="container mx-auto">
         {benefit ? (
           <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6 mt-10">
-            {/* Imagen */}
             <div className="flex-shrink-0">
               <img
                 src={
@@ -46,29 +48,23 @@ const SingleBenefit = () => {
                 className="h-64 w-64 object-contain rounded-md"
               />
             </div>
-            {/* Detalles */}
             <div className="flex flex-col justify-between">
-              {/* Título */}
               <h2 className="text-3xl font-bold mb-4">
                 {benefit.descuento}% de descuento en {benefit.comercio}
               </h2>
-              {/* Descripción */}
               <p className="text-xl mb-4">{benefit.descripcion}</p>
-              {/* Categoría */}
               <p className="text-base">
                 Categoría:{" "}
                 <span className="font-semibold">
                   {benefit.CategoriaGeneral?.nombre}
                 </span>
               </p>
-              {/* Aclaratoria */}
               <p className="text-gray-500 text-sm">
-                Aclaratoria:{" "}
+                Información adicional:{" "}
                 <span className="font-semibold">
                   {benefit.aclaratoria || "N/A"}
                 </span>
               </p>
-              {/* Días disponibles */}
               <p className="text-gray-500 text-sm">
                 Días disponibles:{" "}
                 <span className="font-semibold">
@@ -77,7 +73,6 @@ const SingleBenefit = () => {
                     : "No especificado"}
                 </span>
               </p>
-              {/* Vencimiento */}
               <p className="text-gray-500 text-sm">
                 Válido hasta:{" "}
                 <span className="font-semibold">

@@ -7,8 +7,14 @@ const apiClient = axios.create({
   },
 });
 
-export const getBenefits = async () => {
-  const response = await apiClient.get("/beneficios");
+/**
+ * Pagitation support
+ * @param page Page number (optional)
+ * @returns
+ */
+export const getBenefits = async (page?: number) => {
+  const url = page ? `/beneficios?page=${page}` : "/beneficios";
+  const response = await apiClient.get(url);
   return response.data;
 };
 
