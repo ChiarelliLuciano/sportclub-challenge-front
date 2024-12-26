@@ -1,6 +1,6 @@
 # sportclub-challenge-front
 
-Esta es la aplicación frontend para el Sportclub Challenge, desarrollada con **Vite**, **React** y **TypeScript**. Se conecta a una API backend que se ejecuta en `localhost:3000`.
+**sportclub-challenge-front** es una aplicación básica desarrollada con **Vite**, **React** y **TypeScript**. Se conecta a una API backend que se ejecuta en `localhost:3000`.
 
 ## Configuración del Proyecto
 
