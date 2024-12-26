@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleBenefit } from "../../services/api";
 import { getAvailableDays } from "../../utils/dateHelpers";
+import {
+  isFavorite,
+  addFavorite,
+  removeFavorite,
+} from "../../utils/favoritesHelpers";
 import Header from "../../components/Header";
 
 const SingleBenefit = () => {
@@ -9,8 +14,26 @@ const SingleBenefit = () => {
   const [benefit, setBenefit] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [favorite, setFavorite] = useState(false);
 
   const availableDays = benefit?.Dium ? getAvailableDays(benefit.Dium) : [];
+
+  useEffect(() => {
+    if (id) {
+      setFavorite(isFavorite(id));
+    }
+  }, [id]);
+
+  const toggleFavorite = () => {
+    if (!id) return;
+
+    if (favorite) {
+      removeFavorite(id);
+    } else {
+      addFavorite(id);
+    }
+    setFavorite(!favorite);
+  };
 
   useEffect(() => {
     const fetchBenefit = async () => {
@@ -36,9 +59,21 @@ const SingleBenefit = () => {
   return (
     <div className="bg-gray-100 min-h-screen min-w-full p-4">
       <Header />
-      <div className="container mx-auto">
+      <div className="container mx-auto relative">
         {benefit ? (
-          <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6 mt-10">
+          <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6 mt-10 relative">
+            <button
+              onClick={toggleFavorite}
+              className={`absolute top-4 right-4 px-3 py-2 rounded-full shadow ${
+                favorite
+                  ? "bg-yellow-400 text-black font-bold"
+                  : "bg-red-400 text-white font-bold"
+              } hover:shadow-lg`}
+              title={favorite ? "Quitar de favoritos" : "Agregar a favoritos"}
+            >
+              {favorite ? "Favorito" : "Agregar a Favoritos +"}
+            </button>
+
             <div className="flex-shrink-0">
               <img
                 src={
