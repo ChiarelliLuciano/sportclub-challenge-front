@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
+# sportclub-challenge-front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es la aplicación frontend para el Sportclub Challenge, desarrollada con **Vite**, **React** y **TypeScript**. Se conecta a una API backend que se ejecuta en `localhost:3000`.
 
-Currently, two official plugins are available:
+## Configuración del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Requisitos Previos
 
-## Expanding the ESLint configuration
+Asegúrate de tener instalado lo siguiente:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Node.js](https://nodejs.org/) (se recomienda la versión 18 o superior)
+- [npm](https://www.npmjs.com/) (viene incluido con Node.js)
 
-- Configure the top-level `parserOptions` property like this:
+### Instalación
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clona este repositorio:
+
+   ```bash
+   git clone https://github.com/your-repo/sportclub-challenge-front.git
+   cd sportclub-challenge-front
+   ```
+
+2. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+3. Configura la API backend:
+   - Asegúrate de que el repositorio backend esté clonado y ejecutándose en `localhost:3000`.
+
+## Scripts
+
+Están disponibles los siguientes scripts de npm:
+
+- **`npm run dev`**: Inicia el servidor de desarrollo con recarga en caliente.
+- **`npm run build`**: Compila el proyecto para producción.
+- **`npm run preview`**: Previsualiza la compilación de producción.
+
+### Ejemplo de Uso
+
+Inicia el servidor de desarrollo:
+
+```bash
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Accede a la aplicación en `http://localhost:5173` (puerto predeterminado de Vite).
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Dependencias
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Dependencias Principales
+
+- **React**: Biblioteca para construir interfaces de usuario.
+- **React Router DOM**: Enrutamiento para aplicaciones React.
+- **Axios**: Cliente HTTP para solicitudes API.
+
+### Dependencias de Desarrollo
+
+- **Vite**: Herramienta de desarrollo rápido para frontend.
+- **TypeScript**: JavaScript tipado.
+- **TailwindCSS**: Framework CSS basado en utilidades.
+
+## Configuración para Desarrollo
+
+### Configuración de Vite
+
+Este proyecto utiliza la configuración predeterminada de Vite. Para personalizarla, modifica el archivo `vite.config.ts`.
+
+### TailwindCSS
+
+TailwindCSS está incluido para estilos. Configúralo en `tailwind.config.js` o `postcss.config.js`.
+
+### TypeScript
+
+TypeScript se utiliza para la seguridad de tipos. Modifica `tsconfig.json` para configuraciones personalizadas de TypeScript.
+
+## Integración con la API
+
+La aplicación se conecta a la API backend en `http://localhost:3000`. Asegúrate de que el backend esté en ejecución antes de interactuar con la aplicación.
+
+## Contacto
+
+Para preguntas o comentarios, abre un [issue](https://github.com/ChiarelliLuciano/sportclub-challenge-front/issues).
+
+---
+
+© 2024 Luciano Chiarelli. Todos los derechos reservados.
