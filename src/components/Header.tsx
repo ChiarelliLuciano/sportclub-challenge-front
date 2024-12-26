@@ -21,7 +21,7 @@ const Header = ({ withSpacer = true }: { withSpacer?: boolean }) => {
 
           <div className="md:min-w-[380px]">
             <div className="relative flex w-full">
-              <div className="flex min-h-[40px] w-full sm:py-3 items-center overflow-hidden rounded-full border-[2px] sm:border-[4px] border-yellow-400 text-sm sm:text-lg text-gray-900 focus:outline-none">
+              <div className="flex min-h-[40px] w-full md:py-3 items-center overflow-hidden rounded-full border-[3px] md:border-[4px] border-yellow-400 text-sm md:text-lg text-gray-900 focus:outline-none">
                 <input
                   autoComplete="off"
                   id="search-navbar"

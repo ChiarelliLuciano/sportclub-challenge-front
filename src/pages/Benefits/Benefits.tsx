@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { getBenefits } from "../../services/api";
 import Header from "../../components/Header";
+import BenefitCard from "../../components/BenefitCard";
 
 type Benefit = {
   id: number;
   comercio: string;
   descripcion: string;
+  descuento: number;
+  Imagens: { url: string }[];
 };
 
 const Benefits = () => {
@@ -34,21 +37,20 @@ const Benefits = () => {
   return (
     <div className="bg-gray-100 min-h-screen min-w-full p-4">
       <Header />
-      <h1 className="text-2xl font-bold mb-4">Beneficios:</h1>
-      <ul className="space-y-2">
+      <h1 className="text-xl font-bold mb-6">
+        BENEFICIOS DISPONIBLES PARA VOS
+      </h1>
+      <div className="grid sm:grid-cols-3 xl:grid-cols-5 gap-2">
         {benefits.map((benefit) => (
-          <li key={benefit.id} className="border p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">{benefit.comercio}</h2>
-            <p className="text-gray-700">{benefit.descripcion}</p>
-            <a
-              href={`/beneficio/${benefit.id}`}
-              className="text-blue-500 hover:underline mt-2 block"
-            >
-              View Details
-            </a>
-          </li>
+          <BenefitCard
+            id={benefit.id}
+            key={benefit.id}
+            comercio={benefit.comercio}
+            descuento={benefit.descuento}
+            imagen={benefit.Imagens[0]?.url}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
