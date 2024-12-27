@@ -18,8 +18,25 @@ export const getBenefits = async (page?: number) => {
   return response.data;
 };
 
+/**
+ * Pagitation support
+ * @param id Benefit id
+ * @returns
+ */
 export const getSingleBenefit = async (id: string) => {
   const response = await apiClient.get(`/beneficios/${id}`);
+  return response.data;
+};
+
+/**
+ * Fetch benefits filtered by comercio value
+ * @param value Value to filter by
+ * @returns
+ */
+export const getByValue = async (value: string) => {
+  const response = await apiClient.get(
+    `/beneficios/comercio/${encodeURIComponent(value)}`
+  );
   return response.data;
 };
 

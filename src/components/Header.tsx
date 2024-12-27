@@ -1,12 +1,13 @@
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const Header = ({ withSpacer = true }: { withSpacer?: boolean }) => {
   return (
     <>
       <header className="bg-white fixed top-0 left-0 w-full shadow-md z-10">
-        <div className="container mx-auto flex items-center justify-between p-4">
-          <div className="flex items-center">
+        <div className="container mx-auto p-4 flex flex-col md:flex-row items-center md:justify-between gap-4">
+          <div className="flex justify-center md:justify-start">
             <Link to="/beneficios">
               <img
                 src={logo}
@@ -19,18 +20,8 @@ const Header = ({ withSpacer = true }: { withSpacer?: boolean }) => {
             </Link>
           </div>
 
-          <div className="md:min-w-[380px]">
-            <div className="relative flex w-full">
-              <div className="flex min-h-[40px] w-full md:py-3 items-center overflow-hidden rounded-full border-[3px] md:border-[4px] border-yellow-400 text-sm md:text-lg text-gray-900 focus:outline-none">
-                <input
-                  autoComplete="off"
-                  id="search-navbar"
-                  placeholder="Buscar beneficio"
-                  type="text"
-                  className="h-full w-full pl-8 focus:outline-none"
-                />
-              </div>
-            </div>
+          <div className="w-full md:w-auto">
+            <SearchBar />
           </div>
         </div>
       </header>

@@ -61,19 +61,7 @@ const SingleBenefit = () => {
       <Header />
       <div className="container mx-auto relative">
         {benefit ? (
-          <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6 mt-10 relative">
-            <button
-              onClick={toggleFavorite}
-              className={`absolute top-4 right-4 px-3 py-2 rounded-full shadow ${
-                favorite
-                  ? "bg-yellow-400 text-black font-bold"
-                  : "bg-red-400 text-white font-bold"
-              } hover:shadow-lg`}
-              title={favorite ? "Quitar de favoritos" : "Agregar a favoritos"}
-            >
-              {favorite ? "Favorito" : "Agregar a Favoritos +"}
-            </button>
-
+          <div className="flex flex-col md:flex-row gap-6 bg-white shadow-md rounded-lg p-6 mt-10">
             <div className="flex-shrink-0">
               <img
                 src={
@@ -83,37 +71,56 @@ const SingleBenefit = () => {
                 className="h-64 w-64 object-contain rounded-md"
               />
             </div>
-            <div className="flex flex-col justify-between">
-              <h2 className="text-3xl font-bold mb-4">
-                {benefit.descuento}% de descuento en {benefit.comercio}
-              </h2>
-              <p className="text-xl mb-4">{benefit.descripcion}</p>
-              <p className="text-base">
-                Categoría:{" "}
-                <span className="font-semibold">
-                  {benefit.CategoriaGeneral?.nombre}
-                </span>
-              </p>
-              <p className="text-gray-500 text-sm">
-                Información adicional:{" "}
-                <span className="font-semibold">
-                  {benefit.aclaratoria || "N/A"}
-                </span>
-              </p>
-              <p className="text-gray-500 text-sm">
-                Días disponibles:{" "}
-                <span className="font-semibold">
-                  {availableDays.length > 0
-                    ? availableDays.join(", ")
-                    : "No especificado"}
-                </span>
-              </p>
-              <p className="text-gray-500 text-sm">
-                Válido hasta:{" "}
-                <span className="font-semibold">
-                  {new Date(benefit.vencimiento).toLocaleDateString("es-ES")}
-                </span>
-              </p>
+
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 w-full">
+              <div className="flex flex-col gap-4">
+                <h2 className="text-3xl font-bold">
+                  {benefit.descuento}% de descuento en {benefit.comercio}
+                </h2>
+                <p className="text-xl">{benefit.descripcion}</p>
+                <p className="text-base">
+                  Categoría:{" "}
+                  <span className="font-semibold">
+                    {benefit.CategoriaGeneral?.nombre}
+                  </span>
+                </p>
+                <p className="text-gray-500 text-sm">
+                  Información adicional:{" "}
+                  <span className="font-semibold">
+                    {benefit.aclaratoria || "N/A"}
+                  </span>
+                </p>
+                <p className="text-gray-500 text-sm">
+                  Días disponibles:{" "}
+                  <span className="font-semibold">
+                    {availableDays.length > 0
+                      ? availableDays.join(", ")
+                      : "No especificado"}
+                  </span>
+                </p>
+                <p className="text-gray-500 text-sm">
+                  Válido hasta:{" "}
+                  <span className="font-semibold">
+                    {new Date(benefit.vencimiento).toLocaleDateString("es-ES")}
+                  </span>
+                </p>
+              </div>
+
+              <div className="flex items-start lg:justify-end mt-4 md:mt-0">
+                <button
+                  onClick={toggleFavorite}
+                  className={`px-4 py-2 rounded-full shadow ${
+                    favorite
+                      ? "bg-yellow-400 text-black font-bold"
+                      : "bg-red-400 text-white font-bold"
+                  } hover:shadow-lg`}
+                  title={
+                    favorite ? "Quitar de favoritos" : "Agregar a favoritos"
+                  }
+                >
+                  {favorite ? "Favorito ❤️" : "Agregar a Favoritos 🤍"}
+                </button>
+              </div>
             </div>
           </div>
         ) : (
