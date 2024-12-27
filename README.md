@@ -29,13 +29,14 @@ Asegúrate de tener instalado lo siguiente:
 3. Configura la API backend:
    - Asegúrate de que el repositorio backend esté clonado y ejecutándose en `localhost:3000`.
 
-## Scripts
+## Scripts Disponibles
 
 Están disponibles los siguientes scripts de npm:
 
-- **`npm run dev`**: Inicia el servidor de desarrollo con recarga en caliente.
+- **`npm run dev`**: Inicia el servidor de desarrollo.
 - **`npm run build`**: Compila el proyecto para producción.
 - **`npm run preview`**: Previsualiza la compilación de producción.
+- **`npm run test`**: Ejecuta los tests y genera un informe de cobertura.
 
 ### Ejemplo de Uso
 
@@ -78,6 +79,16 @@ TypeScript se utiliza para la seguridad de tipos. Modifica `tsconfig.json` para 
 ## Integración con la API
 
 La aplicación se conecta a la API backend en `http://localhost:3000`. Asegúrate de que el backend esté en ejecución antes de interactuar con la aplicación.
+
+## Pruebas
+
+1. Ejecuta todas las pruebas:
+
+   ```bash
+   npm run test
+   ```
+
+2. Visualiza el informe de cobertura generado en el directorio `coverage/`.
 
 ## Contacto
 
