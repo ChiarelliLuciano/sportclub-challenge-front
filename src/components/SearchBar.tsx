@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getByValue } from "../services/api";
-
-type Suggestion = {
-  id: number;
-  comercio: string;
-  descuento: number;
-  Imagens: { url: string }[];
-};
+import type { Suggestion } from "../types/types";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");

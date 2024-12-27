@@ -3,13 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { getBenefits } from "../../services/api";
 import Header from "../../components/Header";
 import BenefitCard from "../../components/BenefitCard";
-
-type Benefit = {
-  id: number;
-  comercio: string;
-  descuento: number;
-  Imagens: { url: string }[];
-};
+import type { Benefit } from "../../types/types";
 
 const Benefits = () => {
   const [benefits, setBenefits] = useState<Benefit[]>([]);
@@ -62,7 +56,7 @@ const Benefits = () => {
               id={benefit.id}
               comercio={benefit.comercio}
               descuento={benefit.descuento}
-              imagen={benefit.Imagens?.[0]?.url}
+              imagen={benefit.Imagens?.[0]?.url || ""}
             />
           ))}
         </div>

@@ -1,4 +1,6 @@
-export const getAvailableDays = (dium: Record<string, boolean>): string[] => {
+import type { Dium } from "../types/types";
+
+export const getAvailableDays = (dium: Dium): string[] => {
   const days = {
     lunes: "Lunes",
     martes: "Martes",
@@ -11,6 +13,6 @@ export const getAvailableDays = (dium: Record<string, boolean>): string[] => {
   };
 
   return Object.entries(days)
-    .filter(([key]) => dium[key])
+    .filter(([key]) => dium[key as keyof Dium])
     .map(([, value]) => value);
 };

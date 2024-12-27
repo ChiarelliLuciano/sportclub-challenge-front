@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleBenefit } from "../../services/api";
-import { getAvailableDays } from "../../utils/dateHelpers";
 import {
   isFavorite,
   addFavorite,
   removeFavorite,
 } from "../../utils/favoritesHelpers";
+import { getAvailableDays } from "../../utils/dateHelpers";
 import Header from "../../components/Header";
+import type { Benefit } from "../../types/types";
 
 const SingleBenefit = () => {
   const { id } = useParams<{ id: string }>();
-  const [benefit, setBenefit] = useState<any>(null);
+  const [benefit, setBenefit] = useState<Benefit | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [favorite, setFavorite] = useState(false);
