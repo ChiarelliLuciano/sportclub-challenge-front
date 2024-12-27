@@ -8,6 +8,7 @@ import {
 } from "../../utils/favoritesHelpers";
 import { getAvailableDays } from "../../utils/dateHelpers";
 import Header from "../../components/Header";
+import Loading from "../../components/Loading";
 import type { Benefit } from "../../types/types";
 
 const SingleBenefit = () => {
@@ -54,7 +55,7 @@ const SingleBenefit = () => {
     fetchBenefit();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error}</p>;
 
   return (

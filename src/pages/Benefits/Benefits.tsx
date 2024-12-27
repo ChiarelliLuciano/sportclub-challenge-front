@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getBenefits } from "../../services/api";
 import Header from "../../components/Header";
+import Loading from "../../components/Loading";
 import BenefitCard from "../../components/BenefitCard";
 import type { Benefit } from "../../types/types";
 
@@ -39,7 +40,7 @@ const Benefits = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error}</p>;
 
   return (
